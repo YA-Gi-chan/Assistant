@@ -222,6 +222,7 @@ ul { list-style: none; }
 .cta__privacy { text-align: center; font-size: .8rem; opacity: .85; margin-top: 14px; }
 .cta__privacy a { text-decoration: underline; }
 .cta__thanks { text-align: center; margin-top: 18px; background: rgba(255,255,255,.15); padding: 14px; border-radius: 10px; font-weight: 700; }
+.cta__error { text-align: center; margin-top: 18px; background: rgba(220, 38, 38, .9); padding: 14px; border-radius: 10px; font-weight: 700; }
 
 /* ===== Footer ===== */
 .footer { background: var(--ink); color: #cbd5e1; padding: 56px 0 28px; }

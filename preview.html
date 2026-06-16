@@ -233,6 +233,7 @@ ul { list-style: none; }
 .cta__privacy { text-align: center; font-size: .8rem; opacity: .85; margin-top: 14px; }
 .cta__privacy a { text-decoration: underline; }
 .cta__thanks { text-align: center; margin-top: 18px; background: rgba(255,255,255,.15); padding: 14px; border-radius: 10px; font-weight: 700; }
+.cta__error { text-align: center; margin-top: 18px; background: rgba(220, 38, 38, .9); padding: 14px; border-radius: 10px; font-weight: 700; }
 
 /* ===== Footer ===== */
 .footer { background: var(--ink); color: #cbd5e1; padding: 56px 0 28px; }
@@ -575,7 +576,14 @@ ul { list-style: none; }
       <div class="cta__box">
         <h2 class="cta__title">まずは、無料相談から。</h2>
         <p class="cta__lead">あなたの業務に合わせた活用方法をご提案します。<br />しつこい営業は一切ありません。まずはお気軽にご相談ください。</p>
-        <form class="cta__form" id="contactForm" novalidate>
+        <form class="cta__form" id="contactForm" method="POST"
+              action="https://formsubmit.co/gaga73111@gmail.com" novalidate>
+          <!-- FormSubmit 設定（メール本文・件名・スパム対策） -->
+          <input type="hidden" name="_subject" value="【ひとり秘書】お問い合わせがありました" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <!-- bot対策（人間には見えないダミー欄。入力があれば弾く） -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
           <div class="field">
             <label for="name">お名前 <span>必須</span></label>
             <input type="text" id="name" name="name" placeholder="山田 太郎" required />
@@ -591,6 +599,7 @@ ul { list-style: none; }
           <button type="submit" class="btn btn--primary btn--block btn--lg">無料相談を申し込む</button>
           <p class="cta__privacy">送信により<a href="#">プライバシーポリシー</a>に同意したものとみなします。</p>
           <p class="cta__thanks" id="formThanks" hidden>お問い合わせありがとうございます。担当者より2営業日以内にご連絡します。</p>
+          <p class="cta__error" id="formError" hidden>送信に失敗しました。お手数ですが時間をおいて再度お試しください。</p>
         </form>
       </div>
     </div>
@@ -629,12 +638,13 @@ if (navToggle && nav) {
   });
 }
 
-// お問い合わせフォーム（デモ：実送信なし）
+// お問い合わせフォーム（FormSubmit経由でメール送信）
 const form = document.getElementById('contactForm');
 const thanks = document.getElementById('formThanks');
+const errorMsg = document.getElementById('formError');
 
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = form.name.value.trim();
     const email = form.email.value.trim();
@@ -649,10 +659,31 @@ if (form) {
       return;
     }
 
-    // 実際にはここでサーバーへ送信します
-    form.querySelector('button[type="submit"]').disabled = true;
-    if (thanks) thanks.hidden = false;
-    form.reset();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中…';
+    if (errorMsg) errorMsg.hidden = true;
+
+    try {
+      // FormSubmit の AJAXエンドポイントへ送信（ページ遷移なし）
+      const endpoint = form.action.replace(
+        'https://formsubmit.co/',
+        'https://formsubmit.co/ajax/'
+      );
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+      if (!res.ok) throw new Error('送信に失敗しました');
+
+      if (thanks) thanks.hidden = false;
+      form.reset();
+    } catch (err) {
+      if (errorMsg) errorMsg.hidden = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = '無料相談を申し込む';
+    }
   });
 }
 
