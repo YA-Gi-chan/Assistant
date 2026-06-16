@@ -316,9 +316,9 @@
       <div class="cta__box">
         <h2 class="cta__title">まずは、無料相談から。</h2>
         <p class="cta__lead">あなたの業務に合わせた活用方法をご提案します。<br />しつこい営業は一切ありません。まずはお気軽にご相談ください。</p>
-        <form class="cta__form" id="contactForm" method="POST"
-              action="https://formsubmit.co/gaga73111@gmail.com" novalidate>
-          <!-- FormSubmit 設定（メール本文・件名・スパム対策） -->
+        <form class="cta__form" id="contactForm" novalidate>
+          <!-- 送信先はメールアドレスを含まない専用エンドポイント（script.js の FORM_ENDPOINT で設定）。
+               FormSubmit の件名・本文整形・スパム対策の設定 -->
           <input type="hidden" name="_subject" value="【ひとり秘書】お問い合わせがありました" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />

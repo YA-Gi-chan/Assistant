@@ -12,7 +12,26 @@ if (navToggle && nav) {
   });
 }
 
-// お問い合わせフォーム（FormSubmit経由でメール送信）
+// =====================================================================
+// お問い合わせフォームの送信先設定（ここだけ変更すればOK）
+// ---------------------------------------------------------------------
+// FormSubmit でメールアドレスを「隠す」には、専用コード方式を使います。
+//
+// 【最初の有効化（1回だけ）】
+//   1) 下の FORM_ENDPOINT を一時的にメール直指定にする：
+//        'https://formsubmit.co/ajax/gaga73111@gmail.com'
+//   2) 公開ページからテスト送信 → 届いた確認メールの有効化リンクをクリック
+//   3) 同じメールに「あなた専用のランダムURL（例: .../el/abcd1234）」が記載されます
+//
+// 【メールを隠す（本番）】
+//   有効化後、専用コードに差し替える（このページのソースからメールが消えます）：
+//        'https://formsubmit.co/ajax/el/あなたの専用コード'
+//
+// ↓ 現在は専用コードのプレースホルダー。発行されたコードに置き換えてください。
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/el/YOUR_FORMSUBMIT_CODE';
+// =====================================================================
+
+// お問い合わせフォーム（FormSubmit経由でメール送信・ページ遷移なし）
 const form = document.getElementById('contactForm');
 const thanks = document.getElementById('formThanks');
 const errorMsg = document.getElementById('formError');
@@ -39,12 +58,7 @@ if (form) {
     if (errorMsg) errorMsg.hidden = true;
 
     try {
-      // FormSubmit の AJAXエンドポイントへ送信（ページ遷移なし）
-      const endpoint = form.action.replace(
-        'https://formsubmit.co/',
-        'https://formsubmit.co/ajax/'
-      );
-      const res = await fetch(endpoint, {
+      const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: new FormData(form),
