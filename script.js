@@ -28,7 +28,7 @@ if (navToggle && nav) {
 //        'https://formsubmit.co/ajax/el/あなたの専用コード'
 //
 // ↓ 現在は専用コードのプレースホルダー。発行されたコードに置き換えてください。
-const FORM_ENDPOINT = 'https://formsubmit.co/ajax/el/YOUR_FORMSUBMIT_CODE';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/gaga73111@gmail.com';
 // =====================================================================
 
 // お問い合わせフォーム（FormSubmit経由でメール送信・ページ遷移なし）
