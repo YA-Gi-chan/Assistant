@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecreAssist｜あなたの時間を取り戻すオンライン秘書サービス</title>
+  <meta name="description" content="メール対応・スケジュール管理・経費精算・リサーチまで。優秀なオンライン秘書があなたの面倒な業務を代行します。初月無料でお試しいただけます。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a href="#top" class="logo">Secre<span>Assist</span></a>
+      <nav class="nav" id="nav">
+        <a href="#features">特長</a>
+        <a href="#tasks">対応業務</a>
+        <a href="#flow">ご利用の流れ</a>
+        <a href="#pricing">料金</a>
+        <a href="#faq">よくある質問</a>
+      </nav>
+      <a href="#contact" class="btn btn--primary btn--sm header__cta">無料で相談する</a>
+      <button class="nav-toggle" id="navToggle" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__badge">★ 導入企業 1,200社突破</p>
+        <h1 class="hero__title">面倒な業務は、<br /><span class="accent">優秀な秘書</span>にまかせる。</h1>
+        <p class="hero__lead">
+          メール対応、スケジュール調整、経費精算、リサーチ——。<br />
+          時間を奪う雑務をオンライン秘書が代行。<br class="pc-only" />
+          あなたは本当に大切な仕事に集中できます。
+        </p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary">初月無料で始める</a>
+          <a href="#pricing" class="btn btn--ghost">料金プランを見る</a>
+        </div>
+        <ul class="hero__points">
+          <li>✓ 最短3営業日で稼働</li>
+          <li>✓ 専属チーム制で安心</li>
+          <li>✓ いつでも解約OK</li>
+        </ul>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__card">
+          <div class="hero__card-head">
+            <span class="dot dot--red"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--green"></span>
+            <span class="hero__card-title">本日のタスク</span>
+          </div>
+          <ul class="hero__tasks">
+            <li class="done"><span class="check">✓</span>取引先A社へ見積もり送付</li>
+            <li class="done"><span class="check">✓</span>来週の会議室を予約</li>
+            <li class="done"><span class="check">✓</span>出張の航空券・ホテル手配</li>
+            <li><span class="spinner"></span>経費レシート12件を入力中…</li>
+          </ul>
+          <p class="hero__card-foot">あなたの代わりに、秘書が進めています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Logos / Trust ===== -->
+  <section class="trust">
+    <div class="container">
+      <p class="trust__label">こんな企業・個人にご利用いただいています</p>
+      <div class="trust__logos">
+        <span>スタートアップ経営者</span>
+        <span>士業事務所</span>
+        <span>EC事業者</span>
+        <span>フリーランス</span>
+        <span>医療法人</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Problem ===== -->
+  <section class="problem">
+    <div class="container">
+      <h2 class="section__title">こんなお悩み、ありませんか？</h2>
+      <div class="problem__grid">
+        <div class="problem__card">
+          <div class="problem__icon">😵‍💫</div>
+          <p>雑務に追われて<br />本来の仕事が進まない</p>
+        </div>
+        <div class="problem__card">
+          <div class="problem__icon">📥</div>
+          <p>メールやチャットの<br />返信に毎日2時間</p>
+        </div>
+        <div class="problem__card">
+          <div class="problem__icon">🧾</div>
+          <p>経費精算や請求書処理が<br />後回しになりがち</p>
+        </div>
+        <div class="problem__card">
+          <div class="problem__icon">👤</div>
+          <p>人を雇うほどではないが<br />手は足りていない</p>
+        </div>
+      </div>
+      <p class="problem__bridge">その「自分でなくてもいい仕事」、<strong>すべて任せてしまいましょう。</strong></p>
+    </div>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section class="features" id="features">
+    <div class="container">
+      <p class="section__eyebrow">FEATURES</p>
+      <h2 class="section__title">SecreAssistが選ばれる3つの理由</h2>
+      <div class="features__grid">
+        <div class="feature">
+          <div class="feature__num">01</div>
+          <h3>厳選された専属チーム</h3>
+          <p>採用率3%の選考を通過した秘書が、専属チームであなたを担当。引き継ぎ不要で、業務をよく理解したメンバーが継続して対応します。</p>
+        </div>
+        <div class="feature">
+          <div class="feature__num">02</div>
+          <h3>幅広い業務に1契約で対応</h3>
+          <p>事務作業から経理、リサーチ、Web運用まで。複数の専門スキルを持つチームだから、依頼ごとに人を探す必要はありません。</p>
+        </div>
+        <div class="feature">
+          <div class="feature__num">03</div>
+          <h3>チャットで気軽に依頼</h3>
+          <p>専用チャットに話しかけるだけ。指示書づくりは不要です。スキマ時間にスマホから依頼でき、進捗もリアルタイムで確認できます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Tasks ===== -->
+  <section class="tasks" id="tasks">
+    <div class="container">
+      <p class="section__eyebrow">TASKS</p>
+      <h2 class="section__title">こんな業務をお任せいただけます</h2>
+      <div class="tasks__grid">
+        <div class="task__col">
+          <h3>📅 スケジュール・事務</h3>
+          <ul>
+            <li>日程調整・会議室予約</li>
+            <li>議事録の作成</li>
+            <li>各種データ入力</li>
+            <li>資料・スライド作成</li>
+          </ul>
+        </div>
+        <div class="task__col">
+          <h3>✉️ コミュニケーション</h3>
+          <ul>
+            <li>メール・チャット対応</li>
+            <li>電話・問い合わせ一次対応</li>
+            <li>顧客フォロー連絡</li>
+            <li>アポイント取得</li>
+          </ul>
+        </div>
+        <div class="task__col">
+          <h3>💴 経理・バックオフィス</h3>
+          <ul>
+            <li>経費精算・記帳代行</li>
+            <li>請求書・見積書作成</li>
+            <li>入金確認</li>
+            <li>各種書類整理</li>
+          </ul>
+        </div>
+        <div class="task__col">
+          <h3>🔍 リサーチ・その他</h3>
+          <ul>
+            <li>市場・競合リサーチ</li>
+            <li>出張・宿泊の手配</li>
+            <li>SNS運用サポート</li>
+            <li>慶弔・ギフト手配</li>
+          </ul>
+        </div>
+      </div>
+      <p class="tasks__note">※ 上記以外の業務もお気軽にご相談ください。可能な限り柔軟に対応します。</p>
+    </div>
+  </section>
+
+  <!-- ===== Flow ===== -->
+  <section class="flow" id="flow">
+    <div class="container">
+      <p class="section__eyebrow">FLOW</p>
+      <h2 class="section__title">ご利用開始までの流れ</h2>
+      <ol class="flow__list">
+        <li class="flow__step">
+          <div class="flow__step-num">1</div>
+          <h3>無料相談</h3>
+          <p>フォームからお問い合わせ。お悩みや任せたい業務をヒアリングします。</p>
+        </li>
+        <li class="flow__step">
+          <div class="flow__step-num">2</div>
+          <h3>プランご提案</h3>
+          <p>業務量に合わせた最適なプランと専属チームをご提案します。</p>
+        </li>
+        <li class="flow__step">
+          <div class="flow__step-num">3</div>
+          <h3>キックオフ</h3>
+          <p>専用チャットを開設。最短3営業日で業務をスタートできます。</p>
+        </li>
+        <li class="flow__step">
+          <div class="flow__step-num">4</div>
+          <h3>運用・改善</h3>
+          <p>依頼を重ねるほど精度が向上。定期的に運用を振り返り改善します。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Pricing ===== -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <p class="section__eyebrow">PRICING</p>
+      <h2 class="section__title">シンプルな料金プラン</h2>
+      <p class="section__sub">必要な稼働時間に合わせて選べる3プラン。<strong>初月無料</strong>でお試しいただけます。</p>
+      <div class="pricing__grid">
+        <div class="plan">
+          <h3 class="plan__name">ライト</h3>
+          <p class="plan__desc">まずは雑務を手放したい方に</p>
+          <p class="plan__price"><span class="plan__num">45,000</span><span class="plan__unit">円/月（税抜）</span></p>
+          <p class="plan__hours">月10時間まで</p>
+          <ul class="plan__list">
+            <li>✓ 専属チーム1名</li>
+            <li>✓ チャット依頼</li>
+            <li>✓ 平日9-18時対応</li>
+          </ul>
+          <a href="#contact" class="btn btn--ghost btn--block">このプランで相談</a>
+        </div>
+        <div class="plan plan--featured">
+          <p class="plan__badge">人気No.1</p>
+          <h3 class="plan__name">スタンダード</h3>
+          <p class="plan__desc">業務をしっかり任せたい方に</p>
+          <p class="plan__price"><span class="plan__num">90,000</span><span class="plan__unit">円/月（税抜）</span></p>
+          <p class="plan__hours">月30時間まで</p>
+          <ul class="plan__list">
+            <li>✓ 専属チーム2名</li>
+            <li>✓ チャット＋定例MTG</li>
+            <li>✓ 経理・リサーチ対応</li>
+            <li>✓ 優先サポート</li>
+          </ul>
+          <a href="#contact" class="btn btn--primary btn--block">このプランで相談</a>
+        </div>
+        <div class="plan">
+          <h3 class="plan__name">ビジネス</h3>
+          <p class="plan__desc">チーム全体を支えたい方に</p>
+          <p class="plan__price"><span class="plan__num">180,000</span><span class="plan__unit">円/月（税抜）</span></p>
+          <p class="plan__hours">月70時間まで</p>
+          <ul class="plan__list">
+            <li>✓ 専属チーム3名以上</li>
+            <li>✓ 専任ディレクター</li>
+            <li>✓ 全業務カテゴリ対応</li>
+            <li>✓ 土日・時間外も相談可</li>
+          </ul>
+          <a href="#contact" class="btn btn--ghost btn--block">このプランで相談</a>
+        </div>
+      </div>
+      <p class="pricing__note">※ 表示価格は税抜です。業務内容に応じたカスタムプランもご用意できます。</p>
+    </div>
+  </section>
+
+  <!-- ===== Testimonials ===== -->
+  <section class="voices">
+    <div class="container">
+      <p class="section__eyebrow">VOICES</p>
+      <h2 class="section__title">ご利用者さまの声</h2>
+      <div class="voices__grid">
+        <figure class="voice">
+          <blockquote>「メール対応と日程調整を任せてから、月に40時間以上の余裕が生まれました。本業の売上は前年比150%に。」</blockquote>
+          <figcaption><strong>田中様</strong>／IT企業経営</figcaption>
+        </figure>
+        <figure class="voice">
+          <blockquote>「経理が苦手で後回しにしていましたが、記帳から請求書発行まで丸ごと任せられて本当に助かっています。」</blockquote>
+          <figcaption><strong>佐藤様</strong>／フリーランスデザイナー</figcaption>
+        </figure>
+        <figure class="voice">
+          <blockquote>「人を採用する前提で考えていましたが、まずはこちらで十分でした。固定費を抑えつつ手が増えた感覚です。」</blockquote>
+          <figcaption><strong>鈴木様</strong>／EC事業者</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq">
+    <div class="container container--narrow">
+      <p class="section__eyebrow">FAQ</p>
+      <h2 class="section__title">よくあるご質問</h2>
+      <div class="faq__list">
+        <details class="faq__item">
+          <summary>依頼できる業務に決まりはありますか？</summary>
+          <p>事務・経理・リサーチなど幅広く対応可能です。専門資格が必要な業務（税務申告など）は対象外ですが、その前段階の準備はお任せいただけます。まずはご相談ください。</p>
+        </details>
+        <details class="faq__item">
+          <summary>情報漏えいが心配です。セキュリティは大丈夫ですか？</summary>
+          <p>全スタッフと秘密保持契約（NDA）を締結しています。アクセス権限の管理やデバイスのセキュリティ対策も徹底しており、安心してご利用いただけます。</p>
+        </details>
+        <details class="faq__item">
+          <summary>稼働時間を使い切れなかった場合はどうなりますか？</summary>
+          <p>原則として当月内での消化をお願いしていますが、繁閑のあるお客様には翌月への一部繰り越しもご相談可能です。</p>
+        </details>
+        <details class="faq__item">
+          <summary>担当者を指名・変更できますか？</summary>
+          <p>専属チーム制のため担当は固定されます。相性などのご事情があれば、いつでもチーム変更のご相談を承ります。</p>
+        </details>
+        <details class="faq__item">
+          <summary>契約期間の縛りはありますか？</summary>
+          <p>最低契約期間はありません。月単位でのご利用が可能で、解約はいつでも承ります（解約月の前月末までにご連絡ください）。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA / Contact ===== -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta__box">
+        <h2 class="cta__title">まずは、無料相談から。</h2>
+        <p class="cta__lead">あなたの業務に合わせた活用方法をご提案します。<br />しつこい営業は一切ありません。初月無料でお試しください。</p>
+        <form class="cta__form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">お名前 <span>必須</span></label>
+            <input type="text" id="name" name="name" placeholder="山田 太郎" required />
+          </div>
+          <div class="field">
+            <label for="email">メールアドレス <span>必須</span></label>
+            <input type="email" id="email" name="email" placeholder="example@company.com" required />
+          </div>
+          <div class="field">
+            <label for="message">ご相談内容</label>
+            <textarea id="message" name="message" rows="4" placeholder="任せたい業務やお悩みをお書きください"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block btn--lg">無料相談を申し込む</button>
+          <p class="cta__privacy">送信により<a href="#">プライバシーポリシー</a>に同意したものとみなします。</p>
+          <p class="cta__thanks" id="formThanks" hidden>お問い合わせありがとうございます。担当者より2営業日以内にご連絡します。</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#top" class="logo logo--light">Secre<span>Assist</span></a>
+        <p>あなたの時間を取り戻す、オンライン秘書サービス。</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="#features">特長</a>
+        <a href="#tasks">対応業務</a>
+        <a href="#pricing">料金</a>
+        <a href="#faq">よくある質問</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+    <p class="footer__copy">© 2026 SecreAssist. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
