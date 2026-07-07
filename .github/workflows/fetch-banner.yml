@@ -20,62 +20,61 @@ jobs:
         with:
           ref: claude/video-editing-subtitles-ads-ngbblh
 
-      - name: Crawl Vernis affiliate pages for banner images
+      - name: Deep-crawl vernis.co.jp top page for the main key visual
         run: |
           python3 - <<'EOF'
           import re, os, hashlib, urllib.request, urllib.parse
 
           UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36",
                 "Accept-Language": "ja,en;q=0.8"}
+
+          def get(url):
+              req = urllib.request.Request(url, headers=UA)
+              return urllib.request.urlopen(req, timeout=20).read()
+
           pages = [
-              "https://vernis.co.jp/afi_main.php",
-              "https://afi.vernis.co.jp/af/faq.html",
-              "https://afi.vernis.co.jp/af/system.html",
-              "https://afi2.vernis.co.jp/contents.php?c=index",
-              "https://afi2.vernis.co.jp/contents.php?c=advertisement",
               "https://vernis.co.jp/",
+              "https://vernis.co.jp/index.php",
           ]
-          os.makedirs("assets/banners_found", exist_ok=True)
-          seen = set()
-          manifest = []
-          queue = list(pages)
-          crawled = set()
-          while queue:
-              url = queue.pop(0)
-              if url in crawled or len(crawled) > 40:
-                  continue
-              crawled.add(url)
+          os.makedirs("assets/kv_found", exist_ok=True)
+          texts = []
+          css_seen = set()
+          for url in pages:
               try:
-                  req = urllib.request.Request(url, headers=UA)
-                  html = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", "ignore")
+                  html = get(url).decode("utf-8", "ignore")
               except Exception as e:
-                  print("PAGE FAIL", url, e)
-                  continue
-              # follow banner/material-looking links on same hosts
-              for href in re.findall(r'href=["\']([^"\'>]+)["\']', html):
-                  full = urllib.parse.urljoin(url, href)
-                  if re.search(r'(banner|bnr|material|sozai|af)', full, re.I) and urllib.parse.urlparse(full).netloc.endswith("vernis.co.jp"):
-                      if full not in crawled:
-                          queue.append(full)
-              for src in re.findall(r'(?:src|href)=["\']([^"\'>]+\.(?:jpg|jpeg|png|gif))["\']', html, re.I):
-                  img = urllib.parse.urljoin(url, src)
-                  if img in seen:
-                      continue
-                  seen.add(img)
+                  print("PAGE FAIL", url, e); continue
+              texts.append((url, html))
+              for href in re.findall(r'href=["\']([^"\'>]+\.css[^"\'>]*)["\']', html):
+                  cssu = urllib.parse.urljoin(url, href)
+                  if cssu in css_seen: continue
+                  css_seen.add(cssu)
                   try:
-                      req = urllib.request.Request(img, headers=UA)
-                      data = urllib.request.urlopen(req, timeout=20).read()
+                      texts.append((cssu, get(cssu).decode("utf-8", "ignore")))
                   except Exception as e:
-                      print("IMG FAIL", img, e)
-                      continue
-                  if len(data) < 15000:
-                      continue
-                  name = hashlib.md5(img.encode()).hexdigest()[:10] + "_" + os.path.basename(urllib.parse.urlparse(img).path)
-                  with open(os.path.join("assets/banners_found", name), "wb") as f:
-                      f.write(data)
-                  manifest.append(f"{name}\t{len(data)}\t{img}")
-                  print("SAVED", name, len(data), img)
-          with open("assets/banners_found/manifest.txt", "w") as f:
+                      print("CSS FAIL", cssu, e)
+
+          imgs = set()
+          for base, text in texts:
+              for m in re.findall(r'[\w\-./:%]+\.(?:jpg|jpeg|png|gif|webp)', text, re.I):
+                  imgs.add(urllib.parse.urljoin(base, m))
+
+          manifest = []
+          for img in sorted(imgs):
+              if not urllib.parse.urlparse(img).netloc.endswith("vernis.co.jp"):
+                  continue
+              try:
+                  data = get(img)
+              except Exception as e:
+                  print("IMG FAIL", img, e); continue
+              if len(data) < 30000:
+                  continue
+              name = hashlib.md5(img.encode()).hexdigest()[:10] + "_" + os.path.basename(urllib.parse.urlparse(img).path)
+              with open(os.path.join("assets/kv_found", name), "wb") as f:
+                  f.write(data)
+              manifest.append(f"{name}\t{len(data)}\t{img}")
+              print("SAVED", name, len(data), img)
+          with open("assets/kv_found/manifest.txt", "w") as f:
               f.write("\n".join(manifest) + "\n")
           EOF
 
@@ -83,6 +82,7 @@ jobs:
         run: |
           git config user.name "banner-fetch-bot"
           git config user.email "actions@github.com"
-          git add assets/banners_found || true
-          git diff --cached --quiet || git commit -m "Add fetched banner materials"
+          git pull --rebase origin claude/video-editing-subtitles-ads-ngbblh || true
+          git add assets/kv_found || true
+          git diff --cached --quiet || git commit -m "Add fetched key visual candidates"
           git push origin HEAD:claude/video-editing-subtitles-ads-ngbblh
