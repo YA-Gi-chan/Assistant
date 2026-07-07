@@ -1,0 +1,16 @@
+22f39c8468_spc202607.png	164893	https://vernis.co.jp/asset/footmark/horo/month/img/spc202607.png
+39ce2da68b_we20260705.png	265564	https://vernis.co.jp/asset/footmark/horo/week/img/we20260705.png
+300d3f0f3c_we20260705.webp	38084	https://vernis.co.jp/asset/footmark/horo/week/img/we20260705.webp
+88bf564906_background1.png	103538	https://vernis.co.jp/asset/image/background1.png
+fdd82ecc00_background2.webp	40346	https://vernis.co.jp/asset/image/background2.webp
+37591842c9_column_banner.png	61250	https://vernis.co.jp/asset/image/column_banner.png
+4918ee83ee_feature_top.png	191291	https://vernis.co.jp/asset/image/feature_top.png
+262acb2a02_line_friend.jpg	151115	https://vernis.co.jp/asset/image/line_friend.jpg
+32e439ad5c_line_regist.jpg	104688	https://vernis.co.jp/asset/image/line_regist.jpg
+539bdd05cf_partnership.jpg	40897	https://vernis.co.jp/asset/image/partnership.jpg
+6115c51b46_present.png	40707	https://vernis.co.jp/asset/image/present.png
+9779f8f5be_tokuten4000.png	39143	https://vernis.co.jp/asset/image/tokuten4000.png
+26b5fd3d91_top_debut2.jpg	43337	https://vernis.co.jp/asset/image/top_debut2.jpg
+dc0e0b19c1_top_main_pc2024.webp	40774	https://vernis.co.jp/asset/image/top_main_pc2024.webp
+e1909db781_top_main_sp2024.jpg	199798	https://vernis.co.jp/asset/image/top_main_sp2024.jpg
+94d68c0a3d_top_main_sp2024_5.webp	159342	https://vernis.co.jp/asset/image/top_main_sp2024_5.webp
