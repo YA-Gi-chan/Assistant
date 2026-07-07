@@ -2,6 +2,12 @@ name: Fetch banner materials
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - claude/video-editing-subtitles-ads-ngbblh
+    paths:
+      - .github/workflows/fetch-banner.yml
+      - assets/.fetch-trigger
 
 permissions:
   contents: write
