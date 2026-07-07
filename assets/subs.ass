@@ -1,0 +1,20 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Main,IPAPGothic,52,&H00FFFFFF,&H000000FF,&H00241033,&H96000000,1,0,0,0,100,100,1,0,1,4,2,2,40,40,120,1
+Style: Gold,IPAPGothic,56,&H004AD2FF,&H000000FF,&H00241033,&H96000000,1,0,0,0,100,100,1,0,1,4,2,2,40,40,120,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.55,0:00:03.40,Main,,0,0,0,,{\fad(150,120)}夜、ひとりで\N考えすぎちゃうことない?
+Dialogue: 0,0:00:05.15,0:00:06.90,Main,,0,0,0,,{\fad(150,120)}私もそうだったんだけど…
+Dialogue: 0,0:00:07.00,0:00:09.60,Main,,0,0,0,,{\fad(150,120)}話すことで 頭の中が{\c&H4AD2FF&\fs56}整理{\r\rMain}できたの
+Dialogue: 0,0:00:09.80,0:00:12.15,Main,,0,0,0,,{\fad(150,120)}{\c&H4AD2FF&\fs56}24時間{\r\rMain}いつでも使えて\Nチャットでも相談OK
+Dialogue: 0,0:00:12.30,0:00:16.10,Main,,0,0,0,,{\fad(150,120)}今登録すると\N{\c&H4AD2FF&\fs62}4,000円分 無料{\r\rMain}でお試しできるよ
+Dialogue: 0,0:00:16.50,0:00:18.95,Main,,0,0,0,,{\fad(150,200)}話すだけで 心が軽くなるかも
