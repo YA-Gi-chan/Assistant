@@ -1,0 +1,82 @@
+name: Fetch banner materials
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/video-editing-subtitles-ads-ngbblh
+
+      - name: Crawl Vernis affiliate pages for banner images
+        run: |
+          python3 - <<'EOF'
+          import re, os, hashlib, urllib.request, urllib.parse
+
+          UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36",
+                "Accept-Language": "ja,en;q=0.8"}
+          pages = [
+              "https://vernis.co.jp/afi_main.php",
+              "https://afi.vernis.co.jp/af/faq.html",
+              "https://afi.vernis.co.jp/af/system.html",
+              "https://afi2.vernis.co.jp/contents.php?c=index",
+              "https://afi2.vernis.co.jp/contents.php?c=advertisement",
+              "https://vernis.co.jp/",
+          ]
+          os.makedirs("assets/banners_found", exist_ok=True)
+          seen = set()
+          manifest = []
+          queue = list(pages)
+          crawled = set()
+          while queue:
+              url = queue.pop(0)
+              if url in crawled or len(crawled) > 40:
+                  continue
+              crawled.add(url)
+              try:
+                  req = urllib.request.Request(url, headers=UA)
+                  html = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", "ignore")
+              except Exception as e:
+                  print("PAGE FAIL", url, e)
+                  continue
+              # follow banner/material-looking links on same hosts
+              for href in re.findall(r'href=["\']([^"\'>]+)["\']', html):
+                  full = urllib.parse.urljoin(url, href)
+                  if re.search(r'(banner|bnr|material|sozai|af)', full, re.I) and urllib.parse.urlparse(full).netloc.endswith("vernis.co.jp"):
+                      if full not in crawled:
+                          queue.append(full)
+              for src in re.findall(r'(?:src|href)=["\']([^"\'>]+\.(?:jpg|jpeg|png|gif))["\']', html, re.I):
+                  img = urllib.parse.urljoin(url, src)
+                  if img in seen:
+                      continue
+                  seen.add(img)
+                  try:
+                      req = urllib.request.Request(img, headers=UA)
+                      data = urllib.request.urlopen(req, timeout=20).read()
+                  except Exception as e:
+                      print("IMG FAIL", img, e)
+                      continue
+                  if len(data) < 15000:
+                      continue
+                  name = hashlib.md5(img.encode()).hexdigest()[:10] + "_" + os.path.basename(urllib.parse.urlparse(img).path)
+                  with open(os.path.join("assets/banners_found", name), "wb") as f:
+                      f.write(data)
+                  manifest.append(f"{name}\t{len(data)}\t{img}")
+                  print("SAVED", name, len(data), img)
+          with open("assets/banners_found/manifest.txt", "w") as f:
+              f.write("\n".join(manifest) + "\n")
+          EOF
+
+      - name: Commit results
+        run: |
+          git config user.name "banner-fetch-bot"
+          git config user.email "actions@github.com"
+          git add assets/banners_found || true
+          git diff --cached --quiet || git commit -m "Add fetched banner materials"
+          git push origin HEAD:claude/video-editing-subtitles-ads-ngbblh
