@@ -146,6 +146,20 @@ ul { list-style: none; }
 .task__col li::before { content: ""; position: absolute; left: 0; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: var(--brand); }
 .tasks__note { text-align: center; margin-top: 32px; color: var(--ink-soft); font-size: .9rem; }
 
+/* ===== Case Study ===== */
+.case-study { padding: 88px 0; background: #fff; }
+.case-study__box { margin-top: 44px; display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; padding: 40px; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+.case-study__intro { padding: 28px; background: var(--bg-tint); border-radius: 14px; align-self: start; }
+.case-study__label { color: var(--brand); font-weight: 700; font-size: .82rem; letter-spacing: .12em; margin-bottom: 10px; }
+.case-study__intro h3 { font-size: 1.35rem; line-height: 1.6; margin-bottom: 14px; }
+.case-study__intro p { color: var(--ink-soft); }
+.case-study__steps { display: grid; gap: 20px; }
+.case-study__steps li { display: grid; grid-template-columns: 44px 1fr; gap: 16px; align-items: start; }
+.case-study__steps li > span { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 900; font-size: .82rem; }
+.case-study__steps strong { display: block; margin-bottom: 4px; }
+.case-study__steps p { color: var(--ink-soft); font-size: .92rem; }
+.case-study__note { margin-top: 20px; color: var(--ink-soft); font-size: .82rem; text-align: center; }
+
 /* ===== Flow ===== */
 .flow { padding: 88px 0; }
 .flow__list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; counter-reset: step; }
@@ -235,7 +249,8 @@ ul { list-style: none; }
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
-  .hero__inner { grid-template-columns: 1fr; }
+  .hero__inner, .case-study__box { grid-template-columns: 1fr; }
+  .case-study__box { padding: 28px; }
   .hero__visual { order: -1; }
   .problem__grid, .tasks__grid, .flow__list { grid-template-columns: repeat(2, 1fr); }
   .features__grid, .pricing__grid, .pricing__two, .voices__grid { grid-template-columns: 1fr; }
