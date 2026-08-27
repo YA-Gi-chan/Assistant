@@ -136,6 +136,22 @@ ul { list-style: none; }
 .feature h3 { font-size: 1.25rem; margin: 8px 0 14px; }
 .feature p { color: var(--ink-soft); font-size: .96rem; }
 
+/* ===== Profile ===== */
+.profile { padding: 88px 0; background: var(--bg-soft); }
+.profile__box { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: center; max-width: 980px; margin-inline: auto; }
+.profile__identity { min-height: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(145deg, var(--brand) 0%, #4f46e5 100%); color: #fff; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+.profile__avatar { width: 112px; height: 112px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.16); border: 2px solid rgba(255,255,255,.55); font-size: 3rem; font-weight: 900; }
+.profile__role { margin-top: 22px; font-size: .72rem; letter-spacing: .18em; opacity: .78; }
+.profile__name { margin-top: 2px; font-size: 1.6rem; font-weight: 900; }
+.section__eyebrow--left { text-align: left; }
+.profile__content h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.5; margin-bottom: 22px; }
+.profile__content > p { color: var(--ink-soft); margin-top: 13px; }
+.profile__highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+.profile__highlights li { padding: 15px 12px; text-align: center; background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+.profile__highlights strong, .profile__highlights span { display: block; }
+.profile__highlights strong { color: var(--brand); font-size: 1.05rem; }
+.profile__highlights span { color: var(--ink-soft); font-size: .76rem; margin-top: 2px; }
+
 /* ===== Tasks ===== */
 .tasks { padding: 88px 0; background: var(--bg-tint); }
 .tasks__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
@@ -249,7 +265,8 @@ ul { list-style: none; }
 
 /* ===== Responsive ===== */
 @media (max-width: 900px) {
-  .hero__inner, .case-study__box { grid-template-columns: 1fr; }
+  .hero__inner, .case-study__box, .profile__box { grid-template-columns: 1fr; }
+  .profile__identity { min-height: 240px; }
   .case-study__box { padding: 28px; }
   .hero__visual { order: -1; }
   .problem__grid, .tasks__grid, .flow__list { grid-template-columns: repeat(2, 1fr); }
@@ -268,6 +285,6 @@ ul { list-style: none; }
     background: #fff; border-bottom: 1px solid var(--line); padding: 8px 0; margin: 0;
   }
   .nav.is-open a { padding: 14px 24px; border-top: 1px solid var(--line); }
-  .problem__grid { grid-template-columns: 1fr; }
+  .problem__grid, .profile__highlights { grid-template-columns: 1fr; }
   .hero { padding: 48px 0 64px; }
 }
