@@ -42,6 +42,7 @@ if (form) {
     const submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.textContent = '送信中…';
+    if (thanks) thanks.hidden = true;
     if (errorMsg) errorMsg.hidden = true;
 
     try {
@@ -56,6 +57,7 @@ if (form) {
       form.reset();
     } catch (err) {
       if (errorMsg) errorMsg.hidden = false;
+    } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = '無料相談を申し込む';
     }
