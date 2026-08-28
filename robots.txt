@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ya-gi-chan.github.io/Assistant/sitemap.xml
