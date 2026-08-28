@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src https://formsubmit.co; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action https://formsubmit.co; upgrade-insecure-requests" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://ya-gi-chan.github.io/Assistant/" />
   <title>オンライン秘書・事業立ち上げ事務支援｜ひとり秘書</title>
@@ -411,7 +413,6 @@
                FormSubmit の件名・本文整形・スパム対策の設定 -->
           <input type="hidden" name="_subject" value="【ひとり秘書】お問い合わせがありました" />
           <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
           <!-- bot対策（人間には見えないダミー欄。入力があれば弾く） -->
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
           <div class="field">
@@ -427,7 +428,7 @@
             <textarea id="message" name="message" rows="4" placeholder="任せたい業務やお悩みをお書きください"></textarea>
           </div>
           <button type="submit" class="btn btn--primary btn--block btn--lg">無料相談を申し込む</button>
-          <p class="cta__privacy">送信により<a href="#">プライバシーポリシー</a>に同意したものとみなします。</p>
+          <p class="cta__privacy">送信により<a href="privacy.html">プライバシーポリシー</a>に同意したものとみなします。</p>
           <p class="cta__thanks" id="formThanks" hidden>お問い合わせありがとうございます。担当者より2営業日以内にご連絡します。</p>
           <p class="cta__error" id="formError" hidden>送信に失敗しました。お手数ですが時間をおいて再度お試しください。</p>
         </form>
@@ -449,6 +450,7 @@
         <a href="#pricing">料金</a>
         <a href="#faq">よくある質問</a>
         <a href="#contact">お問い合わせ</a>
+        <a href="privacy.html">プライバシーポリシー</a>
       </nav>
     </div>
     <p class="footer__copy">© 2026 ひとり秘書. All rights reserved.</p>
