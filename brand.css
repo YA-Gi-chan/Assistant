@@ -83,3 +83,5 @@ p,li,dd{text-wrap:pretty;line-break:strict;hanging-punctuation:allow-end}
 .hero__vertical{font-family:"Noto Sans JP",sans-serif!important;font-size:12px;letter-spacing:.35em}
 .eyebrow{letter-spacing:.14em}
 @media(max-width:640px){.price-message{margin:60px auto 50px;padding-top:40px}}
+.hero__copy .kicker{margin-bottom:14px}
+.hero__tagline{margin:0;font-family:"Noto Sans JP",sans-serif;font-size:clamp(13px,1.1vw,15px);font-weight:400;letter-spacing:.08em;line-height:1.8;color:var(--ink-soft);word-break:auto-phrase}
