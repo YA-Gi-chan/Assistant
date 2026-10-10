@@ -56,3 +56,22 @@ small,label,input,textarea,button,.service-note,.voices__note,.price-notes,.work
 .owner-letter__closing{max-width:950px;margin:150px auto 0;text-align:center}.owner-letter__closing>p:first-child{font-size:15px}.owner-letter__closing h2{margin:28px 0;font-size:clamp(42px,5.3vw,76px)}.owner-letter__closing>p:not(:first-child){max-width:690px;margin:0 auto 42px;color:var(--ink-soft);line-height:2.2}
 @media(max-width:960px){.owner-letter__intro,.owner-checks,.owner-letter__solution{grid-template-columns:1fr;gap:50px}.future-grid{grid-template-columns:repeat(2,1fr)}.future-grid article:nth-child(2){border-right:0}.future-grid article:nth-child(-n+2){border-bottom:1px solid #111}}
 @media(max-width:640px){.owner-letter{padding:95px 0}.owner-letter__intro{padding-bottom:70px}.owner-letter__intro h2,.owner-letter__solution h2,.owner-letter__future>h2{font-size:38px}.owner-checks{padding:70px 0}.owner-checks li{grid-template-columns:38px 1fr;gap:10px;padding:18px 0;font-size:14px}.owner-letter__message{padding:85px 0}.owner-letter__solution{padding:80px 0 60px}.compare-grid{grid-template-columns:1fr;margin-bottom:95px}.compare-grid article{padding:30px 24px}.future-grid{grid-template-columns:1fr;margin-top:50px}.future-grid article,.future-grid article:nth-child(2){min-height:240px;border-right:0;border-bottom:1px solid #111}.future-grid article:last-child{border-bottom:0}.future-grid h3{margin-top:70px}.owner-letter__closing{margin-top:95px}.owner-letter__closing h2{font-size:40px}}
+
+/* Typesetting: break Japanese at phrase boundaries, balance headings, avoid orphan characters */
+h1,h2,h3,.owner-checks__lead,.owner-letter__message strong,.hero__lead,.section-lead,.section-heading>p,.owner-checks li,.compare-grid li,.future-grid p,.flow__list p,.faq summary{word-break:auto-phrase;text-wrap:balance}
+p,li,dd{text-wrap:pretty;line-break:strict;hanging-punctuation:allow-end}
+.intro__text p,.owner-letter__intro>div>p,.owner-letter__body p,.owner-letter__closing>p,.profile__content>p,.work-card>p{max-width:36em;line-height:2.1;letter-spacing:.04em}
+.intro__text p+p,.owner-letter__body p+p,.profile__content>p+p{margin-top:1.4em}
+.owner-letter__intro h2{font-size:clamp(34px,3.6vw,52px);line-height:1.5}
+.owner-letter__solution h2,.owner-letter__future>h2{font-size:clamp(32px,3.4vw,50px);line-height:1.5}
+.owner-letter__closing h2{font-size:clamp(34px,3.8vw,56px);line-height:1.5}
+.owner-checks__lead{font-size:clamp(22px,2.2vw,32px);line-height:1.7}
+.owner-letter__message{max-width:780px}
+.owner-letter__message strong{display:block;font-size:clamp(22px,2.4vw,34px);line-height:1.8}
+@media(max-width:640px){.owner-letter__intro h2,.owner-letter__solution h2,.owner-letter__future>h2,.owner-letter__closing h2{font-size:28px}.owner-checks__lead{font-size:22px}.owner-letter__message strong{font-size:21px;text-align:left}}
+.hero h1{font-size:clamp(44px,5.6vw,88px)!important;text-wrap:wrap}
+.hero h1 span,.hero h1 em{white-space:nowrap}
+.intro h2,.strength h2,.contact h2{font-size:clamp(30px,3.4vw,50px)}
+.profile h2{font-size:clamp(28px,3.2vw,46px)}
+.work-card--large h3{font-size:clamp(24px,2.4vw,34px)}
+@media(max-width:640px){.hero h1{font-size:clamp(34px,10vw,46px)!important}.intro h2,.strength h2,.contact h2,.profile h2{font-size:28px}}
