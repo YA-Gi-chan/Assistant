@@ -83,12 +83,12 @@ if (form) {
 
 // スクロールで要素を順に表示
 const revealTargets = document.querySelectorAll(
-  '.intro__grid, .section-heading, .strength__grid, .profile__grid, .voices__head, .price-block, .faq__inner, .contact__grid'
+  '.intro__grid, .owner-letter__intro, .owner-letter__message, .owner-letter__solution, .owner-letter__future, .owner-letter__closing, .section-heading, .strength__grid, .profile__grid, .voices__head, .price-block, .faq__inner, .contact__grid'
 );
 revealTargets.forEach((element) => element.classList.add('reveal'));
 
 const staggerTargets = document.querySelectorAll(
-  '.pain__grid, .service-list, .works__grid, .voices__grid, .plan-intro, .price-cards, .flow__list'
+  '.owner-checks, .compare-grid, .future-grid, .pain__grid, .service-list, .works__grid, .voices__grid, .plan-intro, .price-cards, .flow__list'
 );
 staggerTargets.forEach((element) => element.classList.add('reveal-stagger'));
 
