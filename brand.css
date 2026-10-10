@@ -111,3 +111,8 @@ p,li,dd{text-wrap:pretty;line-break:strict;hanging-punctuation:allow-end}
 .price-perks strong{display:block;font-size:16px;font-weight:500;letter-spacing:.02em}
 .price-perks span{display:block;margin-top:6px;font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
 @media(max-width:760px){.price-perks{grid-template-columns:1fr}.price-perks li+li{border-left:0;border-top:1px solid var(--line)}.price-perks li{padding:20px 12px}}
+/* Variable plan: hourly rate column */
+.variable-table--rate>div{grid-template-columns:1fr .8fr 1.2fr!important;align-items:center}
+.variable-table__rate{font-family:"Manrope","Noto Sans JP",sans-serif;letter-spacing:.02em}
+.variable-table--rate small{display:block;margin-top:4px;font-size:11px;color:var(--ink-soft)}
+@media(max-width:640px){.variable-table--rate>div{grid-template-columns:1fr 1fr!important;gap:4px 12px}.variable-table--rate>div>strong{grid-column:1/-1}.variable-table--rate .variable-table__head span:first-child{grid-column:1/-1}}
