@@ -98,3 +98,5 @@ p,li,dd{text-wrap:pretty;line-break:strict;hanging-punctuation:allow-end}
 .voices figcaption small{margin-top:2px;font-size:11px;color:#9a9a9a}
 @media(max-width:640px){.voices figure{padding:32px 24px 28px}}
 .voices figcaption .voices__avatar{border-radius:50%!important;width:44px!important;height:44px!important;background:transparent!important}
+.owner-letter__closing>p{margin-left:auto!important;margin-right:auto!important}
+.owner-letter__closing>p:first-child{font-size:clamp(14px,1.2vw,16px);letter-spacing:.08em;color:var(--ink-soft)}
