@@ -38,3 +38,10 @@ body{font-family:"Manrope","Noto Sans JP",sans-serif;font-weight:400;letter-spac
 .intro h2,.section-heading h2,.strength h2,.profile h2,.voices h2,.contact h2,.faq h2,.section-title{font-family:"Noto Sans JP",sans-serif;font-weight:400;line-height:1.4;letter-spacing:-.05em}
 .service-list h3,.pain h3,.work-card h3,.price-block__head h3,.plan-intro h3,.flow__list h3{font-family:"Noto Sans JP",sans-serif;font-weight:500;letter-spacing:-.035em}
 .intro__text p,.profile__content>p:not(.eyebrow),.work-card p,.service-list p{line-height:2.05}
+
+/* Apply the new type system to every small label and supporting line. */
+:root{--sans:"Manrope","Noto Sans JP",sans-serif;--jp:"Noto Sans JP",sans-serif}
+small,label,input,textarea,button,.service-note,.voices__note,.price-notes,.work-card__tag,.work-card__no,.service-list__num,.price-block__head span,.plan-intro span,.profile__meta dt,.profile__meta dd{font-family:"Manrope","Noto Sans JP",sans-serif}
+.contact__grid{grid-template-columns:minmax(0,1fr) minmax(480px,1fr);gap:7vw}.contact__copy h2{font-size:clamp(42px,4.2vw,64px);line-height:1.32;white-space:nowrap}.contact__copy>p:not(.eyebrow){max-width:520px;margin-top:38px;font-size:14px;line-height:2.1}.contact__copy ul{display:grid;gap:13px;margin-top:36px}.contact__copy li{position:relative;padding-left:20px;font-family:"Manrope","Noto Sans JP",sans-serif;font-size:14px;letter-spacing:.015em}.contact__copy li:before{content:"";position:absolute;left:0;top:.78em;width:7px;height:1px;background:#fff}
+@media(max-width:960px){.contact__grid{grid-template-columns:1fr;gap:60px}.contact__copy h2{white-space:normal}}
+@media(max-width:640px){.contact__copy h2{font-size:42px;line-height:1.35}.contact__copy>p:not(.eyebrow),.contact__copy li{font-size:13px}}
