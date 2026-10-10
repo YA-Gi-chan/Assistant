@@ -1,3 +1,14 @@
+// ローディング演出
+document.body.classList.add('is-loading');
+const pageLoader = document.getElementById('pageLoader');
+const hideLoader = () => {
+  if (!pageLoader) return;
+  pageLoader.classList.add('is-hidden');
+  document.body.classList.remove('is-loading');
+};
+window.addEventListener('load', () => window.setTimeout(hideLoader, 700));
+window.setTimeout(hideLoader, 2800);
+
 // モバイルナビの開閉
 const navToggle = document.getElementById('navToggle');
 const nav = document.getElementById('nav');
@@ -70,11 +81,53 @@ if (form) {
   });
 }
 
-// スクロールでヘッダーに影を付与
+// スクロールで要素を順に表示
+const revealTargets = document.querySelectorAll(
+  '.intro__grid, .section-heading, .strength__grid, .profile__grid, .voices__head, .price-block, .faq__inner, .contact__grid'
+);
+revealTargets.forEach((element) => element.classList.add('reveal'));
+
+const staggerTargets = document.querySelectorAll(
+  '.pain__grid, .service-list, .works__grid, .voices__grid, .plan-intro, .price-cards, .flow__list'
+);
+staggerTargets.forEach((element) => element.classList.add('reveal-stagger'));
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+  [...revealTargets, ...staggerTargets].forEach((element) => observer.observe(element));
+} else {
+  [...revealTargets, ...staggerTargets].forEach((element) => element.classList.add('is-visible'));
+}
+
+// マウスに合わせてヒーローのキャラクターを少しだけ動かす
+const heroVisual = document.querySelector('.hero__visual');
+const heroHamster = document.querySelector('.hero__hamster');
+if (heroVisual && heroHamster && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  heroVisual.addEventListener('pointermove', (event) => {
+    const rect = heroVisual.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    heroHamster.style.setProperty('--mouse-x', `${x * 16}px`);
+    heroHamster.style.setProperty('--mouse-y', `${y * 12}px`);
+  });
+  heroVisual.addEventListener('pointerleave', () => {
+    heroHamster.style.removeProperty('--mouse-x');
+    heroHamster.style.removeProperty('--mouse-y');
+  });
+}
+
+// スクロールでヘッダーを少しコンパクトにする
 const header = document.querySelector('.header');
 if (header) {
   const onScroll = () => {
-    header.style.boxShadow = window.scrollY > 10 ? '0 4px 20px rgba(30,41,59,.08)' : 'none';
+    header.classList.toggle('is-scrolled', window.scrollY > 40);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
