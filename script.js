@@ -106,28 +106,33 @@ if ('IntersectionObserver' in window) {
   [...revealTargets, ...staggerTargets].forEach((element) => element.classList.add('is-visible'));
 }
 
-// マウスに合わせてヒーローのキャラクターを少しだけ動かす
+// マウスに合わせてヒーローのタイポグラフィをわずかに動かす
 const heroVisual = document.querySelector('.hero__visual');
-const heroHamster = document.querySelector('.hero__hamster');
-if (heroVisual && heroHamster && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+const heroMonogram = document.querySelector('.hero__monogram');
+if (heroVisual && heroMonogram && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   heroVisual.addEventListener('pointermove', (event) => {
     const rect = heroVisual.getBoundingClientRect();
     const x = (event.clientX - rect.left) / rect.width - 0.5;
     const y = (event.clientY - rect.top) / rect.height - 0.5;
-    heroHamster.style.setProperty('--mouse-x', `${x * 16}px`);
-    heroHamster.style.setProperty('--mouse-y', `${y * 12}px`);
+    heroMonogram.style.setProperty('--mouse-x', `${x * 18}px`);
+    heroMonogram.style.setProperty('--mouse-y', `${y * 14}px`);
   });
   heroVisual.addEventListener('pointerleave', () => {
-    heroHamster.style.removeProperty('--mouse-x');
-    heroHamster.style.removeProperty('--mouse-y');
+    heroMonogram.style.removeProperty('--mouse-x');
+    heroMonogram.style.removeProperty('--mouse-y');
   });
 }
 
-// スクロールでヘッダーを少しコンパクトにする
+// スクロールでヘッダーと進捗ラインを更新する
 const header = document.querySelector('.header');
-if (header) {
+const scrollProgress = document.getElementById('scrollProgress');
+if (header || scrollProgress) {
   const onScroll = () => {
-    header.classList.toggle('is-scrolled', window.scrollY > 40);
+    if (header) header.classList.toggle('is-scrolled', window.scrollY > 40);
+    if (scrollProgress) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      scrollProgress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+    }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
