@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ya-gi-chan.github.io/Assistant/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://ya-gi-chan.github.io/Assistant/</loc><lastmod>2026-11-05</lastmod><priority>1.0</priority></url>
+  <url><loc>https://ya-gi-chan.github.io/Assistant/online-secretary/</loc><lastmod>2026-11-05</lastmod><priority>0.9</priority></url>
+  <url><loc>https://ya-gi-chan.github.io/Assistant/small-business/</loc><lastmod>2026-11-05</lastmod><priority>0.9</priority></url>
+  <url><loc>https://ya-gi-chan.github.io/Assistant/spreadsheet/</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ya-gi-chan.github.io/Assistant/accounting-support/</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ya-gi-chan.github.io/Assistant/price/</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
+  <url><loc>https://ya-gi-chan.github.io/Assistant/privacy.html</loc><lastmod>2026-11-05</lastmod><priority>0.2</priority></url>
 </urlset>
